@@ -143,11 +143,12 @@ if __name__ == "__main__":
         phase_overlap = 0.3,                 
         stride = None,               
         stride_burst_every = 300,              
-        stride_burst_lengthgth = 30,                 
+        stride_burst_length = 30,                 
         hot_pages = None,  
         page_favour = 0.0,                   
         seed  = 45
         )
     
     print("Generated Reference String:")
+
     print(" ".join(map(str, reference_string)))
