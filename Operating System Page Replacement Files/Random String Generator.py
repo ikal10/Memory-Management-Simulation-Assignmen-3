@@ -132,6 +132,7 @@ def generate_referance_string ( length: int,                                # ho
 
 
 # main entry point of the program 
+#for loop generated to create multiple reference strings for testing.
 for i in range(10, 100, 10):
     if __name__ == "__main__":
         reference_string = generate_referance_string ( 
@@ -151,5 +152,6 @@ for i in range(10, 100, 10):
             )
         
         print("Generated Reference String:")
+
 
         print(" ".join(map(str, [reference_string])))
