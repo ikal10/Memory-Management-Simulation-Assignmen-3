@@ -3,7 +3,7 @@ import Reference_strings as RF # To import Genrated reference strings to inssure
 
 
 
-def lRU(reference_string, num_frames):#Function to simulate Least Recently Used page replacement algorithm
+def lru(reference_string, num_frames):#Function to simulate Least Recently Used page replacement algorithm
     """
 
     - reference_string: List of page accesses.
@@ -40,9 +40,10 @@ for i in range(1, 6, 1):  # i will be 1, 2, 3, 4, 5
     ref_string = getattr(RF, f"REF_STR_{i}")  # Dynamically access REF_STR_i
     print(f"Ref Str {i}: ", ref_string)
     num_frames = 3
-    faults, hit_ratio, history = LRU(ref_string, num_frames)
+    faults, hit_ratio, history = lru(ref_string, num_frames)
     print(f"Page Faults: {faults}")
     print(f"Hit Ratio: {hit_ratio:.2f}")
     print("Frame History:", history)
     print()  # Blank line for readability
+
 
