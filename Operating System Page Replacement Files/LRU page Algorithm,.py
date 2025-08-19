@@ -1,11 +1,11 @@
 from collections import OrderedDict  # For ordered tracking of page recency
-import Reference_strings as RF # type: ignore
+import Reference_strings as RF # To import Genrated reference strings to inssure unifyed information.
 
 
 
-def lru_page_replacement(reference_string, num_frames):
+def lRU(reference_string, num_frames):#Function to simulate Least Recently Used page replacement algorithm
     """
-    Simulates LRU page replacement.
+
     - reference_string: List of page accesses.
     - num_frames: Number of memory frames.
     Returns: faults, hit ratio, frame history.
@@ -34,13 +34,15 @@ def lru_page_replacement(reference_string, num_frames):
     
     return page_faults, hit_ratio, frame_history
 
-# Example simulatio
+# Example simulation
+#For loop to simulate LRU page relpacement for increasing pages.
 for i in range(1, 6, 1):  # i will be 1, 2, 3, 4, 5
     ref_string = getattr(RF, f"REF_STR_{i}")  # Dynamically access REF_STR_i
     print(f"Ref Str {i}: ", ref_string)
     num_frames = 3
-    faults, hit_ratio, history = lru_page_replacement(ref_string, num_frames)
+    faults, hit_ratio, history = LRU(ref_string, num_frames)
     print(f"Page Faults: {faults}")
     print(f"Hit Ratio: {hit_ratio:.2f}")
     print("Frame History:", history)
     print()  # Blank line for readability
+
