@@ -152,3 +152,4 @@ if __name__ == "__main__":
     print("Generated Reference String:")
 
     print(" ".join(map(str, reference_string)))
+
