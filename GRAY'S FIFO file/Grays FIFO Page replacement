@@ -1,0 +1,43 @@
+def fifo_page_replacement(pages, capacity):
+    frames = []          # stores pages in memory
+    page_faults = 0      # count faults
+    hits = 0             # count hits
+
+    print("=== FIFO Page Replacement Simulation ===")
+    print("Reference String:", pages)
+    print("Frame Capacity:", capacity)
+    print("----------------------------------------")
+
+    for step, page in enumerate(pages, start=1):
+        # Case 1: Page Hit
+        if page in frames:
+            hits += 1
+            print(f"Step {step}: Page {page} → HIT | Frames: {frames}")
+        
+        # Case 2: Page Fault
+        else:
+            page_faults += 1
+            if len(frames) < capacity:
+                frames.append(page)
+                print(f"Step {step}: Page {page} → FAULT | Added {page} | Frames: {frames}")
+            else:
+                removed = frames.pop(0)   # FIFO: remove oldest
+                frames.append(page)
+                print(f"Step {step}: Page {page} → FAULT | Removed {removed}, Added {page} | Frames: {frames}")
+
+    # Summary
+    total = len(pages)
+    hit_rate = hits / total
+    fault_rate = page_faults / total
+
+    print("----------------------------------------")
+    print("Simulation Complete")
+    print(f"Total Requests : {total}")
+    print(f"Hits           : {hits}")
+    print(f"Faults         : {page_faults}")
+    print(f"Hit Rate       : {hit_rate:.2f}")
+    print(f"Fault Rate     : {fault_rate:.2f}")
+    print(f"Final Frames   : {frames}")
+
+
+
